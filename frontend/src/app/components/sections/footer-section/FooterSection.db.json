@@ -1,0 +1,71 @@
+{
+  "contact": [
+    {
+      "h3": "Teléfono:",
+      "name": "/",
+      "href": "/"
+    },
+    {
+      "h3": "Correo Electrónico:",
+      "name": "/",
+      "href": "/"
+    },
+    {
+      "h3": "Dirección",
+      "name": "/",
+      "href": "/"
+    }
+  ],
+  "list": [
+    {
+      "h4": "Mapa del sitio",
+      "a": [
+        {
+          "name": "Enfoque",
+          "link": "/"
+        },
+        {
+          "name": "Servicios",
+          "link": "/"
+        },
+        {
+          "name": "Proyectos",
+          "link": "/"
+        },
+        {
+          "name": "Nosotros",
+          "link": "/"
+        },
+        {
+          "name": "Blog",
+          "link": "/"
+        },
+        {
+          "name": "Contacto",
+          "link": "/"
+        },
+        {
+          "name": "Aviso de privacidad",
+          "lin": "/"
+        }
+      ]
+    },
+    {
+      "h4": "Síguenos",
+      "a": [
+        {
+          "name": "Instagram",
+          "link": "/"
+        },
+        {
+          "name": "Facebook",
+          "link": "/"
+        },
+        {
+          "name": "Tik Tok",
+          "link": "/"
+        }
+      ]
+    }
+  ]
+}
