@@ -1,0 +1,163 @@
+:root {
+    /* Colors */
+    --color-gold: #B9A127;
+    --color-goldCream: #B6AD7D;
+    --color-brown: #8F541E;
+    --color-grey: #858585;
+
+    --color-black: #222222;
+    --color-white: #FAFAFA;
+
+    /* Typography */
+
+    --font-primary: golos;
+    --font-secondary: baskervville;
+
+    --size-3xl: clamp(5rem, 4.2415rem + 3.2362vw, 8.125rem);
+    --size-2xl: clamp(2.5rem, 1.8932rem + 2.589vw, 5rem);
+    --size-xl: clamp(1.75rem, 0.9466rem + 1.2945vw, 2.5rem);
+
+    --size-md: 18px;
+    --size-sm: 14px
+}
+
+@font-face {
+    font-family: golos;
+    src: url('../../public/fonts/GolosText-Regular.woff');
+}
+
+@font-face {
+    font-family: baskervville;
+    src: url('../../public/fonts/Baskervville-Regular.woff');
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+*::before,
+*::after {
+    display: block;
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    object-position: center center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+p a {
+    display: inline;
+}
+
+li {
+    list-style-type: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+
+::selection {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+    appearance: none;
+}
+
+table,
+tr,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 100%;
+    font-family: var(--font-primary);
+    color: var(--black);
+    background-color: var(--color-white);
+    /* (Opcional) */
+    hyphens: manual;
+    /* (Opcional) */
+    font-smooth: always;
+    /* (Opcional) */
+    -webkit-font-smoothing: antialiased;
+    /* (Opcional) */
+    -moz-osx-font-smoothing: grayscale;
+}

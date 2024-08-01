@@ -1,0 +1,19 @@
+{
+  "h3": "Blog",
+  "item": [
+    {
+      "h2": "últimas tendencias",
+      "p": "Conoce las últimas tendencias  de arquitectura, diseño y construcción"
+    },
+    {
+      "h2": "ACabados de lujo para tu hogar",
+      "p": "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "btn": "seguir leyendo"
+    },
+    {
+      "h2": "ACabados de lujo para tu hogar",
+      "p": "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+      "btn": "seguir leyendo"
+    }
+  ]
+}

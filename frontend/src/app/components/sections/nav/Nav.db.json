@@ -1,0 +1,10 @@
+{
+  "links": [
+    { "id": "1", "name": "Enfoque", "link": "#enfoque" },
+    { "id": "2", "name": "Servicios", "link": "#servicios" },
+    { "id": "3", "name": "Desarrollo", "link": "#desarrollo" },
+    { "id": "4", "name": "Blog", "link": "#blog" },
+    { "id": "5", "name": "Nosotros", "link": "#us" },
+    { "id": "6", "name": "Contacto", "link": "#contact" }
+  ]
+}
