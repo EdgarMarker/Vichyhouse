@@ -4,32 +4,36 @@ import style from "./SectionBlog.module.scss";
 import sectionBlogDb from "./SectionBlog.db.json";
 import { urlFor } from "@/app/services/home.services";
 import { PortableText } from "@portabletext/react";
-import { useEffect, useRef } from "react";
-import { register } from 'swiper/element/bundle';
-
-register();
+import { useEffect, useRef, useState } from "react";
 
 const SectionBlog = ({ dataBlog }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideInnerRef = useRef(null);
+  const totalSlides = Math.ceil(dataBlog.homeBlog.homeBlogArticle.length / 2);
+
+  const handleNext = () => {
+    if (currentSlide < totalSlides - 1) {
+      setCurrentSlide((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentSlide > 0) {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    const slideInner = slideInnerRef.current;
+    const slideItemWidth = slideInner.clientWidth;
+    slideInner.style.transform = `translateX(-${currentSlide * slideItemWidth}px)`;
+  }, [currentSlide]);
+
   const cn = (...className) => className.join(" ");
   const data = dataBlog.homeBlog;
 
-  const limitedArticlesPart1 = data.homeBlogArticle.slice(0, 1);
-  const limitedArticlesPart2 = data.homeBlogArticle.slice(2, 3);
-  const limitedArticlesPart3 = data.homeBlogArticle.slice(4, 5);
-
-  const swiperElRef = useRef(null);
-  
-  useEffect(() => {
-    // listen for Swiper events using addEventListener
-    swiperElRef.current.addEventListener("swiperprogress", (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-    });
-
-    swiperElRef.current.addEventListener("swiperslidechange", (e) => {
-      console.log("slide changed");
-    });
-  }, []);
+  const limitedArticlesPart1 = data.homeBlogArticle.slice(0, 2);
+  const limitedArticlesPart2 = data.homeBlogArticle.slice(2, 4);
 
   return (
     <section className={style.blog}>
@@ -45,34 +49,50 @@ const SectionBlog = ({ dataBlog }) => {
           <h2>{data.homeBlogH2}</h2>
           <h2>{data.homeBlogH2Italic}</h2>
           <PortableText value={data.homeBlogDescription} />
-          <swiper-container>
-            <swiper-slide>
-              {data.homeBlogArticle.map((article, idx) => (
-                <div className={style.item} key={idx}>
-                  <a href={article.articleLink}>
-                    <h2>{article.articleName}</h2>
-                  </a>
-                  <PortableText value={article.articleDescription} />
-                  <a className={style.btn} href={article.articleLink}>
-                    Seguir leyendo
-                  </a>
-                </div>
-              ))}
-            </swiper-slide>
-            <swiper-slide>
-              {data.homeBlogArticle.map((article, idx) => (
-                <div className={style.item} key={idx}>
-                  <a href={article.articleLink}>
-                    <h2>{article.articleName}</h2>
-                  </a>
-                  <PortableText value={article.articleDescription} />
-                  <a className={style.btn} href={article.articleLink}>
-                    Seguir leyendo
-                  </a>
-                </div>
-              ))}
-            </swiper-slide>
-          </swiper-container>
+          <div className={cn("slides-containerBlog", style.slideContainer)}>
+            <div
+              ref={slideInnerRef}
+              className={cn("slide-innerBlog", style.slideInner)}
+            >
+              <div className={style.slideItem}>
+                {[...limitedArticlesPart1].map((article, idx) => (
+                  <div className={cn("slideBlog", style.slideBlog)} key={idx}>
+                    <a href={article.articleLink}>
+                      <h2>{article.articleName}</h2>
+                    </a>
+                    <PortableText value={article.articleDescription} />
+                    <a className={style.btn} href={article.articleLink}>
+                      Seguir leyendo
+                    </a>
+                  </div>
+                ))}
+              </div>
+              <div className={style.slideItem}>
+                {limitedArticlesPart2.map((article, idx) => (
+                  <div className={cn("slideBlog", style.slideBlog)} key={idx}>
+                    <a href={article.articleLink}>
+                      <h2>{article.articleName}</h2>
+                    </a>
+                    <PortableText value={article.articleDescription} />
+                    <a className={style.btn} href={article.articleLink}>
+                      Seguir leyendo
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className={style.navigationButtons}>
+            <button onClick={handlePrev} disabled={currentSlide === 0}>
+              <img src="/svg/arrow_icon.svg" alt="arrow_icon" />
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={currentSlide === totalSlides - 1}
+            >
+              <img src="/svg/arrow_icon.svg" alt="arrow_icon" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

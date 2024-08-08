@@ -179,5 +179,28 @@ export default defineType({
       ],
       hidden: ({document}) => !['Home_Blog'].includes(document?.sectionName),
     }),
+    defineField({
+      name: 'homeDivisor',
+      title: 'Divisor de pagina principal',
+      type: 'object',
+      fields: [
+        {
+          name: 'divisorTitle1',
+          title: 'Primera frase llamativa de divisor',
+          type: 'string'
+        },
+        {
+          name: 'divisorTitle2',
+          title: 'Segunda frase llamativa de divisor',
+          type: 'string'
+        },
+        {
+          name: 'divisorImg',
+          title: 'Imagen de divisor',
+          type: 'image'
+        }
+      ],
+      hidden: ({document}) => !['Home_Divisor'].includes(document?.sectionName),
+    })
   ],
 })

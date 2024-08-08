@@ -3,6 +3,7 @@ import {
   getHeroData,
   getHeroIntroData,
   getHomeBlogData,
+  getHomeDivisorData,
   getPreviewProjectCard,
   getServicesData,
 } from "@/app/services/home.services";
@@ -22,7 +23,8 @@ const Main = async () => {
   const servicesData = await getServicesData();
   const previewProjectCard = await getPreviewProjectCard();
   const homeBlogData = await getHomeBlogData();
-  
+  const homeDivisorData = await getHomeDivisorData();
+
   return (
     <>
       {heroData.map((data, idx) => (
@@ -43,7 +45,9 @@ const Main = async () => {
       {homeBlogData.map((data, idx) => (
         <SectionBlog dataBlog={data.pageSections[5]} key={idx} />
       ))}
-      <Divisor />
+      {homeDivisorData.map((data, idx) => (
+        <Divisor data={data.pageSections[6]} key={idx} />
+      ))}
       <Testimonials />
     </>
   );

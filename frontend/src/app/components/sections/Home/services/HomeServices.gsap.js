@@ -2,7 +2,7 @@ import { gsap, useGSAP } from "@/lib/gsap/gsap";
 
 export { useGSAP };
 
-export const horizontalSlideServices = () => {
+export const horizontalSlideServices = ({ servicesRef }) => {
   const slider = document.getElementById("servicesSlider");
   const getScrollAmount = () => {
     let slideWidth = slider.offsetWidth;
@@ -11,11 +11,13 @@ export const horizontalSlideServices = () => {
 
   const tl = gsap.timeline({
     scrollTrigger: {
-      trigger: "#services",
+      trigger: servicesRef.current,
       start: "center 50%",
       end: () => `+=${getScrollAmount() * -1}`,
       pin: true,
       scrub: true,
+      pinSpacing: true,
+      pinReparent: true,
     },
   });
 

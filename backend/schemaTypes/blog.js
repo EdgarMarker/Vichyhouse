@@ -29,7 +29,7 @@ export default defineType({
       name: 'articleDescription',
       title: 'Breve descripción de articulo',
       type: 'array',
-      of:[{type: 'block'}]
+      of: [{ type: 'block'}]
     }),
     defineField({
       name: 'articleLink',

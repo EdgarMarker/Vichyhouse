@@ -3,16 +3,18 @@
 import style from "./HomeServices.module.scss";
 import { horizontalSlideServices, useGSAP } from "./HomeServices.gsap";
 import { PortableText } from "@portabletext/react";
+import { useRef } from "react";
 
 const HomeServices = ({data}) => {
   const cn = (...className) => className.join(" ");
+  const servicesRef = useRef(null);
 
   useGSAP(() => {
-    horizontalSlideServices();
+    horizontalSlideServices({servicesRef});
   }, []);
 
   return (
-    <section className={style.services} id="services">
+    <section className={style.services} id="services" ref={servicesRef}>
       <div className={style.servicesInner} id="servicesSlider">
         {data.homeServices.map((item, idx) => (
           <div className={style.servicesInner__item} key={idx}>

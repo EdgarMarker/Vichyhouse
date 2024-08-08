@@ -1,7 +1,10 @@
 import style from "./Divisor.module.scss";
 
-const Divisor = () => {
+const Divisor = ({ data }) => {
   const cn = (...className) => className.join(" ");
+
+  console.log("data :", data)
+
   return (
     <section className={style.divisor}>
       <h2 className={cn("h2__xl")}>Proyectos que se</h2>

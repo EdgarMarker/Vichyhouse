@@ -123,3 +123,22 @@ export const getHomeBlogData = async () => {
   const data = await client.fetch(QUERY);
   return data;
 };
+
+export const getHomeDivisorData = async () => {
+  const QUERY = `*[_type == 'page']{
+    pageSections[6]->{
+      homeDivisor{
+        divisorTitle1,
+        divisorTitle2,
+        divisorImg{
+          "media": asset,
+          asset->{
+            altText
+          }
+        }
+      }
+    }
+  }`;
+  const data = await client.fetch(QUERY);
+  return data;
+};

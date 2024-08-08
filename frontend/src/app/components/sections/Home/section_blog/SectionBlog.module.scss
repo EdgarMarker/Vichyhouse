@@ -3,24 +3,54 @@
   &Inner {
     &__right {
       padding-top: 10%;
-      .item {
+      position: relative;
+      .slideContainer {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+      }
+      .slideInner {
+        display: flex;
+        transition: transform 0.4s ease;
+        will-change: transform;
+        width: 100%;
+      }
+      .slideItem {
+        flex-shrink: 0;
+        width: 100%;
+      }
+      .slideBlog {
         padding-bottom: 2vh;
         border-top: 1px solid var(--color-black);
-        rows: 2;
-        &:nth-child(2) {
-          h2 {
-            font-size: var(--size-2xl);
-          }
-          .btn {
-            display: none;
-          }
-        }
+        width: fit-content;
       }
       .btn {
         border: 1px solid var(--color-black);
         border-radius: 10px;
         padding: 0.25em 1em;
         width: fit-content;
+      }
+      .navigationButtons {
+        width: fit-content;
+        display: flex;
+        gap: 1em;
+        position: absolute;
+        top: 20%;
+        right: 0%;
+        button {
+          width: 50px;
+          aspect-ratio: 1/1;
+          border: 1px solid var(--color-black);
+          padding: 0.25em;
+          border-radius: 50%;
+          cursor: pointer;
+          &:first-child {
+            img {
+              rotate: 180deg;
+            }
+          }
+        }
       }
     }
   }
@@ -41,6 +71,10 @@
       }
       &__right {
         padding-top: 0;
+        .navigationButtons {
+          top: 10%;
+          right: 0%;
+        }
       }
     }
   }

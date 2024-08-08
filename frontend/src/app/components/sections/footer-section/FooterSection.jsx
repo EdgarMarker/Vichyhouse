@@ -40,7 +40,7 @@ const FooterSection = () => {
         </div>
         <p>
           VICHY HOUSES © Todos los derechos reservados | Sitio web creado por{" "}
-          <a href="">MARKER branding</a>
+          <a href="https://marker.com.mx/">MARKER branding</a>
         </p>
       </div>
     </section>
