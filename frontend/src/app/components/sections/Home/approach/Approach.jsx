@@ -1,29 +1,28 @@
 import style from "./Approach.module.scss";
-import approachDb from "./Approach.db.json";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "@/app/services/home.services";
 
-const Approach = () => {
-    const cn = (...className) => className.join(" ")
+const Approach = ({ data }) => {
+  const cn = (...className) => className.join(" ");
   return (
     <section className={style.approach}>
       <div className={style.approachInner}>
         <div className={style.approachInner__left}>
-          <h3 className={cn("h3__brown")}>{approachDb.h3}</h3>
-          <h2 className={cn("h2__2xl")}>{approachDb.h2}</h2>
+          <h3 className={cn("h3__brown")}>
+            {data.homeApproach?.homeApproachTextH3}
+          </h3>
+          <h2 className={cn("h2__2xl")}>
+            {data.homeApproach.homeApproachTextH2}
+          </h2>
         </div>
         <div className={style.approachInner__right}>
-          <p>
-            Somos especialistas en Real Estate de alta gama, enfocado a
-            proyectos inmobiliarios en las zonas de mayor plusvalía en la
-            ciudad, y con la experiencia para respaldar tus proyectos.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco labor
-          </p>
+          <PortableText value={data.homeApproach.homeApproachTextP} />
         </div>
       </div>
-      <img src="/svg/nav_logo.svg" alt="approach_image" />
+      <img
+        src={urlFor(data.homeApproach.homeApproachImg.media).url()}
+        alt={data.homeApproach.homeApproachImg.asset.altText}
+      />
     </section>
   );
 };

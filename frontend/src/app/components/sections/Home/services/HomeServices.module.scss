@@ -45,11 +45,17 @@
     &Inner {
       &__item {
         padding: 5% calc(10% / 3);
-        div{
-            padding: 5%;
+        div {
+          padding: 5%;
         }
       }
-      &__h2{
+    }
+  }
+}
+@media (min-width: 1025px) {
+  .services {
+    &Inner {
+      &__h2 {
         font-size: var(--size-3xl) !important;
       }
     }
